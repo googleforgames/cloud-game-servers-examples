@@ -27,12 +27,16 @@ template:
   spec:
     ports:
     - name: default
-      containerPort: 8080
-    health:
-      initialDelaySeconds: 30
-      periodSeconds: 60
+      containerPort: 7654
     template:
       spec:
         containers:
-        - name: supertuxkart
-          image: gcr.io/agones-images/supertuxkart-example:0.2
+        - name: simple-udp
+          image: gcr.io/agones-images/udp-server:0.21
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "20m"
+            limits:
+              memory: "64Mi"
+              cpu: "20m"
